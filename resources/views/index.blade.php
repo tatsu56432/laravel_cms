@@ -25,11 +25,11 @@ $posts = $json_decode->feed->entry;
 
 // postsに格納したデータをループしつつ表示する
 foreach ($posts as $post) {
-    echo $post->{'gsx$title'}->{'$t'} . "<br>";
-    echo $post->{'gsx$content'}->{'$t'}. "<br>";
-    echo $post->{'gsx$status'}->{'$t'}. "<br>";
-    echo $post->{'gsx$category'}->{'$t'}. "<br>";
-    echo $post->{'gsx$release'}->{'$t'}. "<br>";
+    echo "タイトル：" . $post->{'gsx$title'}->{'$t'} . "<br>";
+    echo "内容：" . $post->{'gsx$content'}->{'$t'}. "<br>";
+    echo "ステータス：" . $post->{'gsx$status'}->{'$t'}. "<br>";
+    echo "カテゴリ：" . $post->{'gsx$category'}->{'$t'}. "<br>";
+    echo "リリース日：" . $post->{'gsx$release'}->{'$t'}. "<br>";
     echo "<br>";
     }
 ?>
