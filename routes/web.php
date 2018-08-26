@@ -23,3 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
     Route::resource('posts', 'Admin\PostsController');
 });
+
+
+Route::resource('posts', 'PostsController', ['only' => [
+    'index', 'show'
+]]);
