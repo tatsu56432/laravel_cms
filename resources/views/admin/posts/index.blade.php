@@ -20,7 +20,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>タイトル</th>
-                                <th>作成日</th>
+                                {{--<th>作成日</th>--}}
                                 <th>編集</th>
                             </tr>
                             </thead>
@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->created_at->format('Y年m月d日') }}</td>
+                                    {{--<td>{{ $post->created_at->format('Y年m月d日') }}</td>--}}
                                     <td>
                                         {!! link_to_action('Admin\PostsController@show', '表示', [$post->id]) !!}
                                         {!! link_to_action('Admin\PostsController@edit', '編集', [$post->id]) !!}

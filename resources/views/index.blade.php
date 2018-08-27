@@ -14,24 +14,28 @@
 $data = "https://spreadsheets.google.com/feeds/list/1vrFsh5FId0LoYth5sMzCZbUCpn8duLBZVnpwadLPKLw/od6/public/values?alt=json";
 $json = file_get_contents($data);
 $json_decode = json_decode($json);
+$posts_data = array();
 
-
-//echo "<pre>";
-//var_dump($json_decode);
-//echo "<pre>";
 
 // jsonデータ内の『entry』部分を複数取得して、postsに格納
 $posts = $json_decode->feed->entry;
 
 // postsに格納したデータをループしつつ表示する
 foreach ($posts as $post) {
-    echo "タイトル：" . $post->{'gsx$title'}->{'$t'} . "<br>";
-    echo "内容：" . $post->{'gsx$content'}->{'$t'}. "<br>";
-    echo "ステータス：" . $post->{'gsx$status'}->{'$t'}. "<br>";
-    echo "カテゴリ：" . $post->{'gsx$category'}->{'$t'}. "<br>";
-    echo "リリース日：" . $post->{'gsx$release'}->{'$t'}. "<br>";
-    echo "<br>";
-    }
+    $posts_data[] = array(
+        "title" =>  $post->{'gsx$title'}->{'$t'} ,
+        "img" =>  $post->{'gsx$img'}->{'$t'} ,
+        "contents" =>  $post->{'gsx$body'}->{'$t'},
+        "status" =>  $post->{'gsx$status'}->{'$t'},
+        "category" =>  $post->{'gsx$category'}->{'$t'},
+        "release" =>  $post->{'gsx$release'}->{'$t'}
+    );
+}
+
+echo "<pre>";
+var_dump($posts_data);
+echo "<pre>";
+
 ?>
 
 </body>

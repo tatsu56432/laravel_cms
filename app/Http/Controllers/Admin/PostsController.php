@@ -11,7 +11,7 @@ class PostsController extends Controller
     // バリデーションのルール
     public $validateRules = [
         'title' => 'required',
-        'body' => 'max:500'
+        'content' => 'max:500'
     ];
     public function index()
     {
