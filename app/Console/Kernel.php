@@ -26,7 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-
+        $schedule->command('migrate:rollback')->everyMinute();
+        $schedule->command('migrate:refresh')->everyMinute();
         $schedule->command('db:seed')->everyMinute();
     }
 
