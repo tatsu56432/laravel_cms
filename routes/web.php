@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+//    return view('index');
+//});
 
 Auth::routes();
 
@@ -24,9 +24,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
     Route::resource('posts', 'Admin\PostsController');
 });
 
-//Route::resource('/', 'PostsController', ['only' => [
-//    'index'
-//]]);
+Route::resource('/', 'Controller', ['only' => [
+    'index'
+]]);
 
 Route::resource('posts', 'PostsController', ['only' => [
     'index', 'show'

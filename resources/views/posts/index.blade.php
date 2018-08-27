@@ -13,7 +13,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>タイトル</th>
-                                <th>作成日</th>
+                                {{--<th>作成日</th>--}}
                                 <th>詳細ページリンク</th>
                             </tr>
                             </thead>
@@ -21,7 +21,7 @@
                                 <tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->created_at->format('Y年m月d日') }}</td>
+                                    {{--<td>{{ $post->created_at->format('Y年m月d日') }}</td>--}}
                                     <td>
                                         {{--{!! Form::model($post,--}}
                                         {{--['url' => [--}}

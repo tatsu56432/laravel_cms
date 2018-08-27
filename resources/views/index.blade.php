@@ -5,38 +5,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>bbmedia works</title>
 </head>
 <body>
 
-<?php
+<h1>bbmedia works</h1>
 
-$data = "https://spreadsheets.google.com/feeds/list/1vrFsh5FId0LoYth5sMzCZbUCpn8duLBZVnpwadLPKLw/od6/public/values?alt=json";
-$json = file_get_contents($data);
-$json_decode = json_decode($json);
-$posts_data = array();
-
-
-// jsonデータ内の『entry』部分を複数取得して、postsに格納
-$posts = $json_decode->feed->entry;
-
-// postsに格納したデータをループしつつ表示する
-foreach ($posts as $post) {
-    $posts_data[] = array(
-        "title" =>  $post->{'gsx$title'}->{'$t'} ,
-        "img" =>  $post->{'gsx$img'}->{'$t'} ,
-        "contents" =>  $post->{'gsx$body'}->{'$t'},
-        "status" =>  $post->{'gsx$status'}->{'$t'},
-        "category" =>  $post->{'gsx$category'}->{'$t'},
-        "release" =>  $post->{'gsx$release'}->{'$t'}
-    );
-}
-
-echo "<pre>";
-var_dump($posts_data);
-echo "<pre>";
-
-?>
+<div class="container">
+    <div class="container__inner">
+        <ul class="worksItems">
+            @foreach($posts as $post)
+                <li class="worksItem">
+                    <a href="{{ action('PostsController@show', $post->id) }}">
+                        <p class="post_id">{{ $post->id }}</p>
+                        <p class="post_ttl">{{ $post->title }}</p>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
 
 </body>
 </html>
