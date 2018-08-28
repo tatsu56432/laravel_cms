@@ -43,6 +43,8 @@ class PostsTableSeeder extends Seeder
 
         // postsに格納したデータをループしつつ表示する
         foreach ($posts as $post) {
+
+
             $posts_data[] = array(
                 "title" =>  $post->{'gsx$title'}->{'$t'} ,
                 "img" =>  $post->{'gsx$img'}->{'$t'} ,
@@ -51,6 +53,7 @@ class PostsTableSeeder extends Seeder
                 "category" =>  $post->{'gsx$category'}->{'$t'},
                 "release" =>  $post->{'gsx$release'}->{'$t'},
             );
+
         }
 
 
