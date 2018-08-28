@@ -4,6 +4,16 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+
+
+use Mail;
+use DB;
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+
 class loadSpreadSheetCommand extends Command
 {
 
@@ -46,6 +56,7 @@ class loadSpreadSheetCommand extends Command
         $this->db_user = env('DB_USERNAME');  // DBユーザ
         $this->db_pass = env('DB_PASSWORD');  // DBパスワード
         $this->db_name = env('DB_DATABASE');  // バックアップ対象スキーマ
+        $this->store_path = '/tmp';           // 保存先ディレクトリ
 
     }
 
@@ -56,6 +67,36 @@ class loadSpreadSheetCommand extends Command
      */
     public function handle()
     {
-        //
+
+
+
+
+
+        //DBバックアップ
+        // ファイル名
+
+//        $file_name = sprintf('%s.sql', date('YMDHis'));
+//        // ファイルフルパス
+//        $file_path = sprintf('%s/%s', $this->store_path, $file_name);
+//
+//        $command = sprintf(
+//            'mysqldump -h %s -u %s -p%s %s > %s',
+//            $this->db_host,
+//            $this->db_user,
+//            $this->db_pass,
+//            $this->db_name,
+//            $file_path
+//        );
+//
+//        $execFailed = null;
+//        $execRemoveDbFailed = null;
+//
+//        exec($command);
+//
+//        if(!$command){
+//
+//        }
+
+
     }
 }
