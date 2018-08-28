@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('status');
             $table->string('category');
             $table->string('release');
-//            $table->timestamps();
+            $table->timestamps();
         });
     }
 

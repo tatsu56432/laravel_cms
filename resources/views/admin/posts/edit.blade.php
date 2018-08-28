@@ -18,6 +18,9 @@
                             </div>
                         @endif
 
+
+                        <p class="thumb" style="max-width: 960px"><img src="/img/{{ $post->img }}" alt="" width="100%"></p>
+
                         {!! Form::model($post,
                         ['url' => [
                             'admin/posts', $post->id],
@@ -26,6 +29,9 @@
                             'id' => 'post-input'
 
                         ]) !!}
+
+
+
                         @include('admin.posts.fields')
 
                         {!! Form::close() !!}

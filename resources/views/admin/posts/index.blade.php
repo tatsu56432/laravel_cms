@@ -11,9 +11,9 @@
                             <div class="alert alert-success">{{ Session::get('flash_message') }}</div>
                         @endif
 
-                        <div class="mb10">
-                            {!! link_to('admin/posts/create', '新規作成', ['class' => 'btn btn-primary']) !!}
-                        </div>
+                        {{--<div class="mb10">--}}
+                            {{--{!! link_to('admin/posts/create', '新規作成', ['class' => 'btn btn-primary']) !!}--}}
+                        {{--</div>--}}
 
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -30,7 +30,7 @@
                                     <td>{{ $post->title }}</td>
                                     {{--<td>{{ $post->created_at->format('Y年m月d日') }}</td>--}}
                                     <td>
-                                        {!! link_to_action('Admin\PostsController@show', '表示', [$post->id]) !!}
+                                        {!! link_to_action('PostsController@show', '表示', [$post->id]) !!}
                                         {!! link_to_action('Admin\PostsController@edit', '編集', [$post->id]) !!}
                                         {!! Form::model($post,
                                         ['url' => [
